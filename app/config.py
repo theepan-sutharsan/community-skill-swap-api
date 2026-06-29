@@ -8,7 +8,7 @@ class config:
     DB_USER = os.getenv("DB_USER","root")
     DB_PASSWORD = os.getenv("DB_PASSWORD","root123")
     DB_HOST = os.getenv("DB_HOST","localhost")
-    DB_NAME = os.getenv("DB_NAME","student_db")
+    DB_NAME = os.getenv("DB_NAME","community-skill-swap_db")
 
 
     SQLALCHEMY_DATABASE_URI=(
