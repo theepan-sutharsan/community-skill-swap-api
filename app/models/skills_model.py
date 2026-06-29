@@ -8,7 +8,6 @@ class Skill(db.Model):
     Skill_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     Skill_name = db.Column(db.String(100), nullable=False)
     catogory = db.Column(db.String(120), nullable=False)
-   
 
 
     def to_dict(self):
@@ -17,3 +16,5 @@ class Skill(db.Model):
             "skill_name": self.Skill_name,
             "catogory":self.catogory,
         }
+    
+    
