@@ -59,8 +59,9 @@ def register():
     try:
         user = User(
             email=str(data.get("email")).strip(),
-            # role="student"  # Force default role and ignore any payload input
-            role=data.get("role", "student")  # Use provided role or default to "student"
+            full_name=str(data.get("full_name")).strip() if data.get("full_name") else None,
+            location=str(data.get("location")).strip() if data.get("location") else None,
+            profile_image=str(data.get("profile_image")).strip() if data.get("profile_image") else None
         )
         user.set_password(str(data.get("password")))
 
