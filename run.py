@@ -9,5 +9,5 @@ with app.app_context():
     from app.extensions import db
     db.create_all()
 
-if__name__ =="__main__":
+if __name__ =="__main__":
    app.run(debug=True,port=5000)     
