@@ -1,1 +1,40 @@
 community-skill-swap
+
+
+users
+    users_id
+    user_name
+    user_email
+    password
+    location
+    profile_image
+    created_at
+
+user_skills
+    user_skills_id
+    user_id
+    skill_id
+    type (offer/wanted)
+    level (beginner/Intermediate/advanced)
+
+skills
+    skill_id
+    skill_name
+    category
+
+swap_requests
+    request_id
+    sender_id (users)
+    reciver_id (users)
+    offter_skill_id
+    wanted_skill_id
+    status
+    request_date
+
+sessions
+    session_id
+    request_id
+    session_date
+    session_time
+    meeting_link
+    status
