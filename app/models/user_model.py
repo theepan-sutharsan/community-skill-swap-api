@@ -16,15 +16,9 @@ class User(db.Model):
         """Hash and set the user's password."""
         self.password = generate_password_hash(password)
 
-<<<<<<< HEAD
-    
-
-
-=======
     def check_password(self, password):
         """Check the password against the stored hash."""
         return check_password_hash(self.password, password)
->>>>>>> 3e442300046a1604d843f2ca42c2043840114499
 
     def to_dict(self):
         """Return a dictionary representation of the user."""
