@@ -5,11 +5,10 @@ from app.utils import utc_now
 class User(db.Model):
     __tablename__ = "users"
 
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    User_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     full_name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(120), nullable=False, unique=True)
-    age = db.Column(db.Integer, nullable=False)
-    cgpa = db.Column(db.Float, default=0.0)
+    Location = db.Column(db.Integer, nullable=False)
     is_active = db.Column(db.Boolean, default=True)
     joined_date = db.Column(db.Date, nullable=False)
     created_at = db.Column(db.DateTime, default=utc_now)
