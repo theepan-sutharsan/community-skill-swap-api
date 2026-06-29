@@ -12,7 +12,7 @@ def create_app():
     db.init_app(app)
     jwt.init_app(app)
 
-    from app.models import Course, Student, User  # noqa: F401
+    from app.models import User  # noqa: F401
 
     @jwt.user_lookup_loader
     def user_lookup_callback(_jwt_header, jwt_data):
@@ -26,11 +26,11 @@ def create_app():
     @app.route("/", methods=["GET"])
     def api_home():
         return jsonify({
-            "message": "Student Management API",
+            "message": "Community Skill Swap API",
             "version": "1.0",
             "endpoints": {
-                "students": "/api/students",
-                "courses": "/api/courses",
+                "users": "/api/users",
+               
                 "auth": {
                     "register": "/api/auth/register",
                     "login": "/api/auth/login"
