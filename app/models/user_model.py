@@ -17,11 +17,10 @@ class User(db.Model):
 
     def to_dict(self):
         return {
-            "id": self.id,
+            "user_id": self.User_id,
             "full_name": self.full_name,
             "email": self.email,
-            "age": self.age,
-            "cgpa": self.cgpa,
+            "location": self.Location,
             "is_active": self.is_active,
             "joined_date": self.joined_date.isoformat() if self.joined_date else None,
             "created_at": self.created_at.isoformat() if self.created_at else None,
