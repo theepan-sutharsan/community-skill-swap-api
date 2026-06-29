@@ -8,8 +8,10 @@ class User(db.Model):
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     email = db.Column(db.String(120), nullable=False, unique=True)
+    full_name = db.Column(db.String(120), nullable=True)
     password = db.Column(db.String(255), nullable=False)
-    role = db.Column(db.String(20), nullable=False, default="student")
+    location = db.Column(db.String(255), nullable=True)
+    profile_image = db.Column(db.String(255))
     created_at = db.Column(db.DateTime, default=utc_now)
 
     def set_password(self, password):
@@ -25,6 +27,6 @@ class User(db.Model):
         return {
             "id": self.id,
             "email": self.email,
-            "role": self.role,
+            "full_name": self.full_name,
             "created_at": self.created_at.isoformat() if self.created_at else None,
         }
