@@ -23,5 +23,5 @@ class Session(db.Model):
             "scheduled_at": self.scheduled_at.isoformat() if self.scheduled_at else None,
             "location_or_link": self.location_or_link,
             "notes": self.notes,
-            "created_at": self.created_at.isoformat() if self.created_at else None,
+            # "created_at": self.created_at.isoformat() if self.created_at else None,
         }
