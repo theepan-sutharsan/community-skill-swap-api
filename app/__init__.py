@@ -11,7 +11,6 @@ def create_app():
     app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(
         minutes=Config.JWT_ACCESS_TOKEN_EXPIRES_MINUTES
     )
-
     db.init_app(app)
     jwt.init_app(app)
 
