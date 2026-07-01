@@ -19,9 +19,9 @@ class UserSkill(db.Model):
     user = db.relationship("User", back_populates="user_skills")
     skill = db.relationship("Skill", back_populates="user_skills")
 
-    def to_dict(self):
+    def to_dict(self, include_user=False):
         skill_name = self.skill.name if self.skill else None
-        return {
+        data = {
             "id": self.id,
             "user_id": self.user_id,
             "skill_id": self.skill_id,
@@ -30,3 +30,7 @@ class UserSkill(db.Model):
             "level": self.level,
             "created_at": self.created_at.isoformat() if self.created_at else None,
         }
+        if include_user and self.user:
+            data["user_name"] = self.user.name
+            data["user_location"] = self.user.location
+        return data
