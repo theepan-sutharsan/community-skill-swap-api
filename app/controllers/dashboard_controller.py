@@ -11,6 +11,15 @@ def get_dashboard():
     offered = UserSkill.query.filter_by(user_id=user_id, type="offered").all()
     wanted = UserSkill.query.filter_by(user_id=user_id, type="wanted").all()
 
+    community_offered = (
+        UserSkill.query.filter(
+            UserSkill.user_id != user_id,
+            UserSkill.type == "offered",
+        )
+        .order_by(UserSkill.created_at.desc())
+        .all()
+    )
+
     sent = SwapRequest.query.filter_by(sender_id=user_id).order_by(
         SwapRequest.created_at.desc()
     ).limit(5).all()
@@ -32,6 +41,9 @@ def get_dashboard():
     return jsonify({
         "my_skills_offered": [s.to_dict() for s in offered],
         "my_skills_wanted": [s.to_dict() for s in wanted],
+        "community_skills_offered": [
+            s.to_dict(include_user=True) for s in community_offered
+        ],
         "requests_sent": [s.to_dict() for s in sent],
         "requests_received": [s.to_dict() for s in received],
         "confirmed_sessions": [s.to_dict() for s in sessions],
