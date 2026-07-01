@@ -19,3 +19,6 @@ class Skill(db.Model):
             "category": self.category,
             "created_at": self.created_at.isoformat() if self.created_at else None,
         }
+    
+
+
