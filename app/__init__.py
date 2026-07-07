@@ -16,6 +16,10 @@ def create_app():
 
     register_blueprints(app)
 
+    @app.get("/")
+    def health():
+        return jsonify({"status": "ok"}), 200
+
     @app.errorhandler(404)
     def not_found(e):
         return jsonify({"error": "Not found."}), 404
